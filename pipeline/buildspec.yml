@@ -24,4 +24,4 @@ artifacts:
     - appspec.yml
     - post_script.sh
     - imagedefinitions.json
-    - buildspec-deploy.yml
+    - pipeline/buildspec-deploy.yml
