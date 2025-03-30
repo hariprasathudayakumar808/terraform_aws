@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - docker build -t flask_gpt_ec2 .
+      - docker build -t flask_gpt_ec2 ./app
       - docker tag flask_gpt_ec2:latest 471112585965.dkr.ecr.eu-central-1.amazonaws.com/python/flask_gpt_ec2:latest
       - docker push 471112585965.dkr.ecr.eu-central-1.amazonaws.com/python/flask_gpt_ec2:latest
   post_build:
