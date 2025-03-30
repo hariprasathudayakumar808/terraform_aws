@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  build:
+    commands:
+      - echo "Fetching EC2 instance ID..."
+      - INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=flask-gpt-ec2" --query "Reservations[0].Instances[0].InstanceId" --output text)
+      - echo "Running post_script.sh on EC2 instance $INSTANCE_ID..."
+      - aws ssm send-command \
+          --document-name "AWS-RunShellScript" \
+          --comment "Remote deploy via SSM" \
+          --instance-ids "$INSTANCE_ID" \
+          --region eu-central-1 \
+          --parameters 'commands=["bash /home/ubuntu/post_script.sh"]'
