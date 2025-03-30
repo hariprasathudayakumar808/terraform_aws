@@ -18,6 +18,8 @@ phases:
       - echo "--- Build Artifact Output Contents ---"
       - ls -alh
       - echo "✅ Done listing output artifact contents"
+      - echo "--- Final Output Tree ---"
+      - find .
 
 artifacts:
   files:
