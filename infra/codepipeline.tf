@@ -99,6 +99,7 @@ resource "aws_codepipeline" "flask_gpt_pipeline" {
       version          = "1"
       configuration = {
         ProjectName = aws_codebuild_project.flask_gpt_deploy.name
+        PrimarySource  = "build_output"
       }
     }
   }

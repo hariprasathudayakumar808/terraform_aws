@@ -15,9 +15,13 @@ phases:
     commands:
       - echo Writing image definitions file...
       - printf '[{"name":"flask_gpt_ec2","imageUri":"471112585965.dkr.ecr.eu-central-1.amazonaws.com/python/flask_gpt_ec2:latest"}]' > imagedefinitions.json
+      - echo "--- Build Artifact Output Contents ---"
+      - ls -alh
+      - echo "✅ Done listing output artifact contents"
 
 artifacts:
   files:
     - appspec.yml
     - post_script.sh
     - imagedefinitions.json
+    - buildspec-deploy.yml
