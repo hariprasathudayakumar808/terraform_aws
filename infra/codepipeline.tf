@@ -39,7 +39,7 @@ resource "aws_codebuild_project" "flask_gpt_deploy" {
 
   source {
     type      = "CODEPIPELINE"
-    buildspec = "pipeline/buildspec-deploy.yml"
+    buildspec = "buildspec-deploy.yml"
   }
 }
 
