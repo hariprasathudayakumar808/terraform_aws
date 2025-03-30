@@ -95,6 +95,7 @@ resource "aws_codepipeline" "flask_gpt_pipeline" {
       owner            = "AWS"
       provider         = "CodeBuild"
       input_artifacts  = ["build_output"]
+      output_artifacts = ["deploy_output"]
       version          = "1"
       configuration = {
         ProjectName = aws_codebuild_project.flask_gpt_deploy.name
